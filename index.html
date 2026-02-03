@@ -110,7 +110,7 @@
   #main-pub-card-container{ width:100%; padding:0; margin:4px 0 0; }
   #main-pub-card-container>h5{ margin-bottom:16px; }
   .pub-card{
-  width:100%; padding:18px 0; margin:0;
+  width:100%; padding:18px 0; margin:0px;
   border-top:1px solid var(--line); border-bottom:0; border-left:0; border-right:0;
   background:transparent; box-shadow:none; border-radius:0;
     }
@@ -150,6 +150,53 @@
 
   #travel-map{ max-width:1200px; margin:56px auto 32px; padding:0 24px; }
   #travel-map .subtitle{ font-family:"EB Garamond",Georgia,serif; font-weight:700; font-size:28px; margin:0 0 12px; }
+
+    .pc-legend{
+    display:inline-flex;
+    align-items:center;
+    padding:3px 10px;
+    background:#fff;
+    border:1px solid rgba(0,0,0,0.10);
+    border-radius:999px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+    color: rgba(0,0,0,0.65);
+    }
+
+    .pc-legend .sq{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background:#bbb1b1;
+    border-radius:3px; /* 关键：小于 5 才不会变圆 */
+    margin-right:6px;
+    transform: translateY(1px);
+    }
+
+
+.pub-card.primary{
+  position: relative;
+  border-radius: 12px;   /* 保留你的圆角 */
+  transform: none;       /* 不再移动卡片本体 */
+  box-shadow: none;      /* 不在卡片本体上做阴影 */
+}
+
+.pub-card.primary::before{
+  content: "";
+  position: absolute;
+
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;                 /* 左右不缩 */
+
+  border-radius: 12px;
+
+  /* 阴影更明显（对称、但强一点） */
+  box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.14);
+
+  pointer-events: none;
+}
+
 
 @media (min-width:900px){
   .site-layout{ align-items:start; }
@@ -289,7 +336,9 @@
         <div id="main-pub-container">
             <h2>Publications & Preprints</h2>
             <p style="font-size: 14px; color: gray; margin-top: 10px;">
-            <sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Advisors
+            <sup>*</sup> Equal contribution &nbsp;&nbsp; 
+            <sup>†</sup> Advisors &nbsp;&nbsp;
+            <span class="pc-legend"><span class="sq"></span> Primary contributor</span>
             </p>
 
             <!-- Robotics Section -->
@@ -311,7 +360,7 @@
                                 </h6>
                                 <p class="info">
                                     <span class="conference">
-                                       In Submission.
+                                       In Submission / <a href="https://egoverse.ai/">Project Page</a>
                                         </span>
                                     <br>
                                     EgoVerse is a platform for human data-driven robot learning that unifies data collection, 
@@ -324,7 +373,7 @@
             </div>
 
             <div class="main-pub-card-container">
-                <div class="pub-card" data-year="2025">
+                <div class="pub-card primary" data-year="2025">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <div class="pub-img-wrapper">
@@ -352,7 +401,7 @@
             </div>
 
             <div class="main-pub-card-container">
-                <div class="pub-card" data-year="2025">
+                <div class="pub-card primary" data-year="2025">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <div class="pub-img-wrapper">
@@ -387,7 +436,7 @@
             <!-- Video Processing Section -->
             <h6 class="pub-type-header">Video Processing</h6>
             <div class="main-pub-card-container">
-                <div class="pub-card" data-year="2024">
+                <div class="pub-card primary" data-year="2024">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <div class="pub-img-wrapper">
@@ -409,7 +458,7 @@
                     </div>
                 </div>
         
-                <div class="pub-card">
+                <div class="pub-card primary">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <div class="pub-img-wrapper">
@@ -459,7 +508,7 @@
             <!-- AIGC Section -->
             <h6 class="pub-type-header">AIGC</h6>
             <div class="main-pub-card-container">
-                <div class="pub-card" data-year="2023">
+                <div class="pub-card primary" data-year="2023">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <div class="pub-img-wrapper">
